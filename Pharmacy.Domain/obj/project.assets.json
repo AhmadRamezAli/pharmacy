@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Pharmacy.SharedKernel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Pharmacy.SharedKernel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Pharmacy.SharedKernel.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Pharmacy.SharedKernel/1.0.0": {
+      "type": "project",
+      "path": "../Pharmacy.SharedKernel/Pharmacy.SharedKernel.csproj",
+      "msbuildProject": "../Pharmacy.SharedKernel/Pharmacy.SharedKernel.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Pharmacy.SharedKernel >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\hp\\.nuget\\packages\\": {}
@@ -13,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\source\\repos\\pharmacy\\Pharmacy.Domain\\Pharmacy.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\Source\\Repos\\pharmacy\\Pharmacy.Domain\\Pharmacy.Domain.csproj",
       "projectName": "Pharmacy.Domain",
-      "projectPath": "C:\\Users\\hp\\source\\repos\\pharmacy\\Pharmacy.Domain\\Pharmacy.Domain.csproj",
+      "projectPath": "C:\\Users\\hp\\Source\\Repos\\pharmacy\\Pharmacy.Domain\\Pharmacy.Domain.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\source\\repos\\pharmacy\\Pharmacy.Domain\\obj\\",
+      "outputPath": "C:\\Users\\hp\\Source\\Repos\\pharmacy\\Pharmacy.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\hp\\Source\\Repos\\pharmacy\\Pharmacy.SharedKernel\\Pharmacy.SharedKernel.csproj": {
+              "projectPath": "C:\\Users\\hp\\Source\\Repos\\pharmacy\\Pharmacy.SharedKernel\\Pharmacy.SharedKernel.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
