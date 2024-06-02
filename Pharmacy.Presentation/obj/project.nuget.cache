@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RVZ12U7KFFFfGSHgGn1u2teYCm1pba5z8ku1QGGEdOt6ph/keMIndkQ+ggLB4nOr9a/tEenou8zfnHZiz3D8nA==",
+  "dgSpecHash": "9cloc1Dkp9SbrAjuI64Fkeg809mxwRLf1u4Ko4aShNX03xTy7qnOkj+iU+p7r5WHQ0Sr1wdZqgebLZj1kURhag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\source\\repos\\pharmacy\\Pharmacy.Presentation\\Pharmacy.Presentation.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\hp\\Source\\Repos\\pharmacy\\Pharmacy.Presentation\\Pharmacy.Presentation.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
