@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Pharmacy.SharedKernel.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace Pharmacy.Domain.Entities
 {
-    public partial class Patient
+    public partial class Patient : Entity
     {
         public Patient()
         {
             PatientDiseases = new HashSet<PatientDisease>();
         }
 
-        public int Id { get; set; }
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
