@@ -22,5 +22,21 @@ public static class DependencyInjection
             options.UseSqlServer(conncetionString);
         });
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+        services.AddScoped<ICompanyRepository, CompanyRepository>();
+
+        services.AddScoped<IDiseaseMedicineRepository, DiseaseMedicineRepository>();
+
+        services.AddScoped<IDiseaseRepository, DiseaseRepository>();
+
+        services.AddScoped<IIngredientRepository, IngredientRepository>();
+
+        services.AddScoped<IMedicienIngredientRepository, MedicienIngredientRepository>();
+
+        services.AddScoped<IMedicineRepository, MedicineRepository>();
+
+        services.AddScoped<IPatientDiseaseRepository, PatientDiseaseRepository>();
+
+        services.AddScoped<IPatientRepository, PatientRepository>();
     }
 }
