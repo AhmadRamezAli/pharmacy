@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Domain.Repositories;
-using Pharmacy.Web.Models;
-using System.Diagnostics;
 
 namespace Pharmacy.Web.Controllers
 {
@@ -26,10 +24,6 @@ namespace Pharmacy.Web.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        
     }
 }
