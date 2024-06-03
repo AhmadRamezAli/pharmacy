@@ -2,7 +2,7 @@
 using Pharmacy.Domain.Entities;
 using Pharmacy.Infrastracture.Models;
 using Pharmacy.Presentation.Controllers;
-using Pharmacy.Presentation.Models;
+using Pharmacy.Presentation.Models.Category;
 
 namespace Pharmacy.Adapters.Settings;
 
