@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.Domain.Repositories
 {
-    internal interface IMedicienIngredientRepository : IRepository<MedicienIngredient>
+    public interface IMedicienIngredientRepository : IRepository<MedicienIngredient>
     {
     }
 }
