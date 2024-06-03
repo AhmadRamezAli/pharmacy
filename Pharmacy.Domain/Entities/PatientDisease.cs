@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Pharmacy.SharedKernel.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace Pharmacy.Domain.Entities
 {
-    public partial class PatientDisease
+    public partial class PatientDisease : Entity
     {
-        public int Id { get; set; }
         public int Patient { get; set; }
         public int Disease { get; set; }
 

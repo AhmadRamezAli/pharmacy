@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Pharmacy.Infrastracture.Models
 {
-    public partial class IngredientDAO
+    public partial class IngredientDAO : DAO
     {
         public IngredientDAO()
         {

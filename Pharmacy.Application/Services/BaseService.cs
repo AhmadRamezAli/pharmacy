@@ -5,7 +5,7 @@ using Pharmacy.SharedKernel.Service;
 
 namespace Pharmacy.Application.Services;
 
-internal class BaseService<TEntity> : IService<TEntity>
+public class BaseService<TEntity> : IService<TEntity>
     where TEntity : Entity
 {
     private readonly IRepository<TEntity> _repository;

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Pharmacy.SharedKernel.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace Pharmacy.Domain.Entities
 {
-    public partial class Medicine
+    public partial class Medicine : Entity
     {
         public Medicine()
         {
@@ -11,7 +12,6 @@ namespace Pharmacy.Domain.Entities
             MedicienIngredients = new HashSet<MedicienIngredient>();
         }
 
-        public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string Description { get; set; } = null!;
         public int Category { get; set; }
@@ -19,7 +19,7 @@ namespace Pharmacy.Domain.Entities
         public int Company { get; set; }
         public string ScientificName { get; set; } = null!;
 
-        public virtual Category CategoryNavigation { get; set; } = null!;
+        public virtual MedicienIngredient CategoryNavigation { get; set; } = null!;
         public virtual Company CompanyNavigation { get; set; } = null!;
         public virtual ICollection<DiseaseMedicine> DiseaseMedicines { get; set; }
         public virtual ICollection<MedicienIngredient> MedicienIngredients { get; set; }

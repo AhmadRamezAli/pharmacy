@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Pharmacy.SharedKernel.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace Pharmacy.Domain.Entities
 {
-    public partial class Disease
+    public partial class Disease : Entity
     {
         public Disease()
         {
@@ -11,7 +12,6 @@ namespace Pharmacy.Domain.Entities
             PatientDiseases = new HashSet<PatientDisease>();
         }
 
-        public int Id { get; set; }
         public string Name { get; set; } = null!;
 
         public virtual ICollection<DiseaseMedicine> DiseaseMedicines { get; set; }
