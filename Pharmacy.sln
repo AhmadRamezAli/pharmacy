@@ -15,9 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharmacy.Presentation", "Ph
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharmacy.Infrastracture", "Pharmacy.Infrastracture\Pharmacy.Infrastracture.csproj", "{99B4D964-E531-4679-BA2C-2AB1F0031943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharmacy.SharedKernel", "Pharmacy.SharedKernel\Pharmacy.SharedKernel.csproj", "{A4898C6A-7600-4907-9F85-F62F0DA6B91F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharmacy.SharedKernel", "Pharmacy.SharedKernel\Pharmacy.SharedKernel.csproj", "{A4898C6A-7600-4907-9F85-F62F0DA6B91F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharmacy.Web", "Pharmacy.Web\Pharmacy.Web.csproj", "{746D5BEE-C483-4D35-99E7-A5DD73FC4C25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharmacy.Web", "Pharmacy.Web\Pharmacy.Web.csproj", "{746D5BEE-C483-4D35-99E7-A5DD73FC4C25}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharmacy.Adapters", "Pharmacy.Adapters\Pharmacy.Adapters.csproj", "{94FD3D7C-987F-4BB5-8720-EEB8A2E0F618}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharmacy.Contracts", "Pharmacy.Contracts\Pharmacy.Contracts.csproj", "{34908C70-1BCA-49E0-B75F-E006F46C7C92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,14 @@ Global
 		{746D5BEE-C483-4D35-99E7-A5DD73FC4C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{746D5BEE-C483-4D35-99E7-A5DD73FC4C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{746D5BEE-C483-4D35-99E7-A5DD73FC4C25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94FD3D7C-987F-4BB5-8720-EEB8A2E0F618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94FD3D7C-987F-4BB5-8720-EEB8A2E0F618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94FD3D7C-987F-4BB5-8720-EEB8A2E0F618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94FD3D7C-987F-4BB5-8720-EEB8A2E0F618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34908C70-1BCA-49E0-B75F-E006F46C7C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34908C70-1BCA-49E0-B75F-E006F46C7C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34908C70-1BCA-49E0-B75F-E006F46C7C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34908C70-1BCA-49E0-B75F-E006F46C7C92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +72,8 @@ Global
 		{99B4D964-E531-4679-BA2C-2AB1F0031943} = {90EC7EC5-A32B-464F-93C4-056498D0B0DE}
 		{A4898C6A-7600-4907-9F85-F62F0DA6B91F} = {90EC7EC5-A32B-464F-93C4-056498D0B0DE}
 		{746D5BEE-C483-4D35-99E7-A5DD73FC4C25} = {90EC7EC5-A32B-464F-93C4-056498D0B0DE}
+		{94FD3D7C-987F-4BB5-8720-EEB8A2E0F618} = {90EC7EC5-A32B-464F-93C4-056498D0B0DE}
+		{34908C70-1BCA-49E0-B75F-E006F46C7C92} = {90EC7EC5-A32B-464F-93C4-056498D0B0DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9D89359C-5C99-490E-A33C-14B34280E9AB}
