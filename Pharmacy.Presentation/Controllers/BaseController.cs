@@ -25,25 +25,40 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
         var entities = _service.GetAll();
         return View(entities);
     }
+    public IActionResult Create()
+    {
+        return View();
+    }
 
-    public IActionResult Add(TCreateRequest request)
+    public IActionResult Edit(int id)
+    {
+        var entity = _service.Get(id);
+        return View(_mapper.Map<TUpdateRequest>(entity));
+    }
+
+
+    [HttpPost]
+    public IActionResult ApplyCreate(TCreateRequest request)
     {
         var entity = _mapper.Map<TEntity>(request);
         _service.Add(entity);
         return RedirectToAction("Index");
     }
 
-    public IActionResult Edit(TUpdateRequest request)
+    [HttpPut]
+    public IActionResult ApplyEdit(TUpdateRequest request)
     {
         var entity = _mapper.Map<TEntity>(request);
         _service.Update(entity);
         return RedirectToAction("Index");
     }
+
+    [HttpDelete]
+
     public IActionResult Delete(int id)
     {
         var entity = _service.Get(id);
         _service.Delete(entity);
-        return View();
+        return RedirectToAction("Index");
     }
-
 }
