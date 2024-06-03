@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Pharmacy.Domain.Entities;
 using Pharmacy.Infrastracture.Models;
+using Pharmacy.Presentation.Controllers;
+using Pharmacy.Presentation.Models;
 
 namespace Pharmacy.Adapters.Settings;
 
@@ -34,5 +36,14 @@ public class MapperProfile : Profile
 
         CreateMap<PatientDisease, PatientDiseaseDAO>();
         CreateMap<PatientDiseaseDAO, PatientDisease>();
+
+        // 
+
+        CreateMap<CreateCategoryRequest, Category>();
+        //CreateMap<Category, CreateCategoryRequest>();
+
+        CreateMap<UpdateCategoryRequest, Category>();
+        //CreateMap<Category, UpdateCategoryRequest>();
+
     }
 }
