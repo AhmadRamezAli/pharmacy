@@ -1,6 +1,6 @@
 ﻿using Pharmacy.SharedKernel.DTO;
 
-namespace Pharmacy.Presentation.Models
+namespace Pharmacy.Presentation.Models.Category
 {
     public class CreateCategoryRequest : ICreateRequest
     {
