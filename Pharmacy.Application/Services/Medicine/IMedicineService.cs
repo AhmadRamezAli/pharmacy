@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pharmacy.Application.Services.Medicien
+namespace Pharmacy.Application.Services.Medicine
 {
-    internal interface IMedicienService : IService<Pharmacy.Domain.Entities.Medicine>
+    internal interface IMedicineService : IService<Pharmacy.Domain.Entities.Medicine>
     {
     }
 }

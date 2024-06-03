@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.Application.Services.Category;
 
-internal class CategoryService : BaseService<Domain.Entities.Category>,ICategoryService
+public class CategoryService : BaseService<Domain.Entities.Category>,ICategoryService
 {
     private readonly ICategoryRepository _repository;
 
@@ -18,7 +18,7 @@ internal class CategoryService : BaseService<Domain.Entities.Category>,ICategory
         _repository = repository;
     }
 
-    public List<Medicine> GetMedicines(int categoryId)
+    public List<Domain.Entities.Medicine> GetMedicines(int categoryId)
     {
         return _repository.GetMedicines(categoryId);
     }
