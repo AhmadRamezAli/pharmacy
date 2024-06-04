@@ -2,14 +2,16 @@ using Pharmacy.Domain.Repositories;
 using Pharmacy.Infrastracture.DI;
 using Pharmacy.Infrastracture.Repositories;
 using Pharmacy.Adapters.DI;
+using Pharmacy.Application.DI;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddAdapters();
-builder.Services.AddControllersWithViews();
 var conncetionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddInfrastructure(conncetionString);
+builder.Services.AddApplication();
+builder.Services.AddControllersWithViews();
 
 
 
