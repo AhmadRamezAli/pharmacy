@@ -1,12 +1,14 @@
 ﻿@model List<Pharmacy.Domain.Entities.Category>
 
 <h1>Categories</h1>
+
 <table class="table">
 	<thead>
 		<tr>
 			<th scope="col">#</th>
 			<th scope="col">Id</th>
 			<th scope="col">Name</th>
+			<th scope="col">##</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -14,10 +16,14 @@
 		{
 			
 		<tr>
-				<th scope="row">@(i + 1)</th>
-				<td>@Model[i].Id</td>
-				<td>@Model[i].Name</td>
+			<th scope="row">@(i + 1)</th>
+			<td>@Model[i].Id</td>
+			<td>@Model[i].Name</td>
+			@* <td><a asp-action="Delete" asp-route="@Model[i].Id">Delete</a> </td>
+			<td><a asp-action="Edit" asp-route="@Model[i].Id" class="btn btn-primary">Edit</a> </td> *@
+
 		</tr>
 		}
 	</tbody>
+
 </table>
