@@ -64,7 +64,7 @@ public class MapperProfile : Profile
         CreateMap<CreatePatientRequest, Patient>();
         CreateMap<UpdatePatientRequest, Patient>();
         CreateMap<Patient,CreatePatientRequest>();
-        CreateMap<Patient,UpdatePatientRequest>();
+		CreateMap<Patient, UpdatePatientRequest>();
         //
 
 
