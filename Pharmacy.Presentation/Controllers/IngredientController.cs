@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Pharmacy.Application.Services;
+using Pharmacy.Application.Services.Category;
 using Pharmacy.Domain.Entities;
 using Pharmacy.Presentation.Controllers;
 using Pharmacy.Presentation.Models.Disease;
@@ -9,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Pharmacy.Application;
+using Pharmacy.Application.Services.Ingredient;
 
 namespace Pharmacy.Presentation.Controllers
 {
@@ -16,7 +19,7 @@ namespace Pharmacy.Presentation.Controllers
 }
 public class IngredientController : BaseController<Ingredient, CreateIngredientRequest, UpdateIngredientRequest>
 {
-    public IngredientController(BaseService<Ingredient> service, IMapper mapper) : base(service, mapper)
+    public IngredientController(IIngredientService service, IMapper mapper) : base(service, mapper)
     {
     }
 }

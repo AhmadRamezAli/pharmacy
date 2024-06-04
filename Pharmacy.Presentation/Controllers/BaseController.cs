@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Application.Services;
+using Pharmacy.Application.Services.Category;
 using Pharmacy.SharedKernel.DTO;
 using Pharmacy.SharedKernel.Entities;
 using Pharmacy.SharedKernel.Service;
@@ -15,13 +16,14 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
     private readonly IService<TEntity> _service;
     private readonly IMapper _mapper;
 
-    public BaseController(IService<TEntity> service, IMapper mapper)
+	public BaseController(IService<TEntity> service, IMapper mapper)
     {
         _service = service;
         _mapper = mapper;
     }
 
-    public IActionResult Index()
+
+	public IActionResult Index()
     {
         var entities = _service.GetAll();
         return View(entities);
@@ -62,7 +64,7 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
         return RedirectToAction(nameof(this.Index));
     }
 
-    [HttpDelete]
+   
 
     public IActionResult Delete(int id)
     {

@@ -1,4 +1,17 @@
-﻿<form>
+﻿@model Pharmacy.Presentation.Models.Category.CreateCategoryRequest
+
+
+<form asp-action="ApplyCreate" asp-controller="Category" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input type="text" asp-for="Name" class="form-control" placeholder="Enter Category Name">
+        <span asp-validation-for="Name" class="form-text mt-1 mb-1 text-muted text-danger" style="color:red!important"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+<form>
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
