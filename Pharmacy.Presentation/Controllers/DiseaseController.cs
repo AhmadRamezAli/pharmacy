@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.Presentation.Controllers
 {
-    internal class DiseaseController : BaseController<Disease, CreateDisaseRequest, UpdateDiseaseRequest>
+    internal class DiseaseController : BaseController<Disease, CreateDiseaseRequest, UpdateDiseaseRequest>
     {
         public DiseaseController(BaseService<Disease> service, IMapper mapper) : base(service, mapper)
         {
