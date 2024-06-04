@@ -31,6 +31,7 @@ public partial class PharmacyContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
         modelBuilder.UseCollation("Arabic_CI_AS");
 
         modelBuilder.Entity<CategoryDAO>(entity =>
