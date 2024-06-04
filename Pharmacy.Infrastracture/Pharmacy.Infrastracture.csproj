@@ -20,6 +20,7 @@
 </ItemGroup>
 
 <ItemGroup>
+  <ProjectReference Include="..\Pharmacy.Adapters\Pharmacy.Adapters.csproj" />
   <ProjectReference Include="..\Pharmacy.Domain\Pharmacy.Domain.csproj" />
 </ItemGroup>
 
