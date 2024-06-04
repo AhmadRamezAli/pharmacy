@@ -41,12 +41,16 @@ public class BaseRepository<TEntity, TDAO> : IRepository<TEntity>
     public TEntity Get(int id)
     {
         TDAO? res = _context.Set<TDAO>().FirstOrDefault(e => e.Id == id);
+        _context.SaveChanges();
         return _mapper.Map<TEntity>(res);
     }
 
     public List<TEntity> GetAll()
     {
-        return _context.Set<TDAO>().Select(e => _mapper.Map<TEntity>(e)).ToList();
+        var x= _context.Set<TDAO>().Select(e => _mapper.Map<TEntity>(e)).ToList();
+
+        _context.SaveChanges();
+        return x;
     }
 
     public PaginatedResponse<TEntity> GetPage(PaginatedRequest request)

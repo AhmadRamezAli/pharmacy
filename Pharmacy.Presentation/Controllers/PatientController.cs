@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Pharmacy.Application.Services;
+using Pharmacy.Application.Services.Category;
+using Pharmacy.Application.Services.Patient;
 using Pharmacy.Domain.Entities;
 using Pharmacy.Presentation.Models.Patient;
 using System;
@@ -12,7 +14,7 @@ namespace Pharmacy.Presentation.Controllers
 {
     public class PatientController : BaseController<Patient, CreatePatientRequest, UpdatePatientRequest>
     {
-        public PatientController(BaseService<Patient> service, IMapper mapper) : base(service, mapper)
+        public PatientController(IPatientService service, IMapper mapper) : base(service, mapper)
         {
         }
     }

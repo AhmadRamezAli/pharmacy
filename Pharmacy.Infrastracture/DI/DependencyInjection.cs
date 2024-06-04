@@ -14,6 +14,8 @@ public static class DependencyInjection
         services.AddDbContext<PharmacyContext>(options =>
         {
             options.UseSqlServer(conncetionString);
+            options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
         });
         services.AddScoped<ICategoryRepository, CategoryRepository>();
 

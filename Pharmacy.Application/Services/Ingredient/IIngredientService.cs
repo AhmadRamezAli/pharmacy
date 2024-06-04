@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.Application.Services.Ingredient
 {
-    internal interface IIngredientService : IService<Pharmacy.Domain.Entities.Ingredient>
+    public interface IIngredientService : IService<Pharmacy.Domain.Entities.Ingredient>
     {
     }
 }

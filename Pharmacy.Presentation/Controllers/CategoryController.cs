@@ -1,15 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Pharmacy.Application.Services;
 using Pharmacy.Application.Services.Category;
 using Pharmacy.Domain.Entities;
 using Pharmacy.Presentation.Models.Category;
-using Pharmacy.SharedKernel.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pharmacy.Presentation.Controllers;
 
