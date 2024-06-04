@@ -6,6 +6,7 @@ using Pharmacy.Application.Services.DiseaseMedicine;
 using Pharmacy.Application.Services.Ingredient;
 using Pharmacy.Application.Services.Medicien;
 using Pharmacy.Application.Services.MedicienIngredient;
+using Pharmacy.Application.Services.Medicine;
 using Pharmacy.Application.Services.Patient;
 using Pharmacy.Application.Services.PatientDisease;
 
@@ -25,7 +26,7 @@ public static class DependencyInjection
 
         services.AddScoped<IIngredientService, IngredientService>();
 
-        services.AddScoped<IMedicienService, MedicienService>();
+        services.AddScoped<IMedicineService,MedicineService>();
 
         services.AddScoped<IMedicienIngredientService, MedicienIngredientService>();
 

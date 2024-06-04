@@ -6,12 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pharmacy.Application.Services.Medicine
+namespace Pharmacy.Application.Services.Medicine;
+
+public class MedicineService : BaseService<Domain.Entities.Medicine>, IMedicineService
 {
-    public class MedicineService : BaseService<Domain.Entities.Medicine>, IMedicineService
+    public MedicineService(IRepository<Domain.Entities.Medicine> repository) : base(repository)
     {
-        public MedicineService(IRepository<Domain.Entities.Medicine> repository) : base(repository)
-        {
-        }
     }
 }
