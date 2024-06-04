@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.Application.Services.Ingredient
 {
-    internal class IngredientService : BaseService<Domain.Entities.Ingredient>, IIngredientService
+    public class IngredientService : BaseService<Domain.Entities.Ingredient>, IIngredientService
     {
         public IngredientService(IIngredientRepository repository) : base(repository)
         {

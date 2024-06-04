@@ -1,18 +1,13 @@
-﻿<form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    @*<span asp-validation-for="Movie.ReleaseDate" class="text-danger"></span>*@
+﻿@model Pharmacy.Presentation.Models.Category.CreateCategoryRequest
 
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+<form asp-action="ApplyCreate" asp-controller="Category" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input type="text" asp-for="Name" class="form-control" placeholder="Enter Category Name">
+        <span asp-validation-for="Name" class="form-text mt-1 mb-1 text-muted text-danger" style="color:red!important"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>

@@ -16,3 +16,142 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.sampah {
+    background: #000;
+    width: 12px;
+    height: 15px;
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    -webkit-border-bottom-right-radius: 1px;
+    -webkit-border-bottom-left-radius: 1px;
+    -moz-border-radius-bottomright: 1px;
+    -moz-border-radius-bottomleft: 1px;
+    border-bottom-right-radius: 1px;
+    border-bottom-left-radius: 1px;
+}
+
+    .sampah:after {
+        position: absolute;
+        left: -1px;
+        right: 0;
+        bottom: -5px;
+        width: 5px;
+    }
+
+    .sampah span {
+        position: absolute;
+        height: 3px;
+        background: #000;
+        top: -4px;
+        left: -1px;
+        right: -1px;
+        border-top-left-radius: 1px;
+        border-top-right-radius: 1px;   
+        transform: rotate(0deg);
+        transition: transform 250ms;
+        transform-origin: 19% 100%;
+    }
+
+        .sampah span:after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 3px;
+            background: #000;
+            top: -4px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transform: rotate(0deg);
+            transition: transform 250ms;
+            transform-origin: 19% 100%;
+            left: 4px;
+        }
+
+
+    .sampah i {
+        position: relative;
+        width: 1px;
+        height: 5px;
+        background: #fff;
+        display: block;
+        margin: 1px auto;
+        border-radius: 5px;
+    }
+
+        .sampah i:after {
+            content: '';
+            width: 1px;
+            height: 5px;
+            background: #fff;
+            position: absolute;
+            left: -4px;
+            border-radius: 5px;
+        }
+
+        .sampah i:before {
+            content: '';
+            width: 1px;
+            height: 5px;
+            background: #fff;
+            position: absolute;
+            right: -4px;
+            border-radius: 5px;
+        }
+
+    .sampah:hover span {
+        transform: rotate(-45deg);
+        transition: transform 250ms;
+    }
+
+
+
+
+
+
+
+.Btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 60px;
+    height: 20px;
+    border: none;
+    padding: 0px 10px;
+    background-color: rgb(168, 38, 255);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 5px 5px 0px rgb(140, 32, 212);
+    transition-duration: .3s;
+}
+
+.svg {
+    width: 13px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    fill: white;
+    transition-duration: .3s;
+}
+
+.Btn:hover {
+    color: transparent;
+}
+
+    .Btn:hover svg {
+        right: 43%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        transition-duration: .3s;
+    }
+
+.Btn:active {
+    transform: translate(3px, 3px);
+    transition-duration: .3s;
+    box-shadow: 2px 2px 0px rgb(140, 32, 212);
+}
