@@ -45,15 +45,33 @@ public class MapperProfile : Profile
 
         CreateMap<CreateCategoryRequest, Category>();
         CreateMap<UpdateCategoryRequest, Category>();
+        CreateMap<Category,UpdateCategoryRequest>();
+        CreateMap<Category,CreateCategoryRequest>();
+        //
+
         CreateMap<CreateCompanyRequest,Company>();
         CreateMap<UpdateCompanyReques, Company>();
+        CreateMap<Company,CreateCompanyRequest>();
+        CreateMap<Company,UpdateCompanyReques>();
+        //
+
         CreateMap<CreateMedicineRequest, Medicine>();
         CreateMap<UpdateMedicineRequest, Medicine>();
+        CreateMap<Medicine,CreateMedicineRequest>();
+        CreateMap<Medicine,UpdateMedicineRequest>();
+
+        //
         CreateMap<CreatePatientRequest, Patient>();
         CreateMap<UpdatePatientRequest, Patient>();
+        CreateMap<Patient,CreatePatientRequest>();
+        CreateMap<Patient,UpdatePatientRequest>();
+        //
+
+
         CreateMap<CreateDiseaseRequest,Disease>();
         CreateMap<UpdateDiseaseRequest,Disease>();
-
+        CreateMap<Disease,CreateDiseaseRequest>();
+        CreateMap<Disease,UpdateDiseaseRequest>();
 
     }
 }
