@@ -5,9 +5,10 @@ namespace Pharmacy.Presentation.Models.Category
 {
     public class UpdateCategoryRequest : IUpdateRequest
     {
+        [Required(ErrorMessage = "please don't let this filed empty")]
         public int Id { get; set; }
 
-        [MaxLength(70, ErrorMessage = "WTF")]
+        [Required(ErrorMessage = "please don't let this filed empty")]
         public string Name { get; set; } = string.Empty;
 
     }

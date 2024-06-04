@@ -16,7 +16,7 @@ namespace Pharmacy.Presentation.Controllers;
 public class CategoryController : BaseController<Category, CreateCategoryRequest, UpdateCategoryRequest>
 {
     private readonly ICategoryService _categoryService;
-    public CategoryController(CategoryService service, IMapper mapper) : base(service, mapper)
+    public CategoryController(ICategoryService service, IMapper mapper) : base(service, mapper)
     {
         _categoryService = service;
     }
