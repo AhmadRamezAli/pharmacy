@@ -25,6 +25,8 @@ public class BaseRepository<TEntity, TDAO> : IRepository<TEntity>
     {
         TDAO dao = _mapper.Map<TDAO>(entity);
         _context.Set<TDAO>().Add(dao);
+        _context.SaveChanges();
+
         entity.Id = dao.Id;
         return entity;
     }
@@ -33,6 +35,7 @@ public class BaseRepository<TEntity, TDAO> : IRepository<TEntity>
     {
         TDAO dao = _mapper.Map<TDAO>(entity);
         _context.Set<TDAO>().Remove(dao);
+        _context.SaveChanges();
     }
 
     public TEntity Get(int id)
@@ -65,6 +68,7 @@ public class BaseRepository<TEntity, TDAO> : IRepository<TEntity>
     {
          TDAO dao = _mapper.Map<TDAO>(entity);
         _context.Set<TDAO>().Update(dao);
+        _context.SaveChanges();
         entity.Id = dao.Id;
     }
     #endregion

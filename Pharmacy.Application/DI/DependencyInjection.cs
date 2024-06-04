@@ -4,7 +4,6 @@ using Pharmacy.Application.Services.Company;
 using Pharmacy.Application.Services.Disease;
 using Pharmacy.Application.Services.DiseaseMedicine;
 using Pharmacy.Application.Services.Ingredient;
-using Pharmacy.Application.Services.Medicien;
 using Pharmacy.Application.Services.MedicienIngredient;
 using Pharmacy.Application.Services.Medicine;
 using Pharmacy.Application.Services.Patient;

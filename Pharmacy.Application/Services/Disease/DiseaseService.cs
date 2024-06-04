@@ -1,4 +1,5 @@
-﻿using Pharmacy.SharedKernel.Repository;
+﻿using Pharmacy.Domain.Repositories;
+using Pharmacy.SharedKernel.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Pharmacy.Application.Services.Disease
 {
     internal class DiseaseService : BaseService<Domain.Entities.Disease>, IDiseaseService
     {
-        public DiseaseService(IRepository<Domain.Entities.Disease> repository) : base(repository)
+        public DiseaseService(IDiseaseRepository repository) : base(repository)
         {
         }
     }

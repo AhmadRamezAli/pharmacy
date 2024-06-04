@@ -1,4 +1,5 @@
 ﻿using Pharmacy.Domain.Entities;
+using Pharmacy.Domain.Repositories;
 using Pharmacy.SharedKernel.Repository;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace Pharmacy.Application.Services.Medicine;
 
 public class MedicineService : BaseService<Domain.Entities.Medicine>, IMedicineService
 {
-    public MedicineService(IRepository<Domain.Entities.Medicine> repository) : base(repository)
+    public MedicineService(IMedicineRepository repository) : base(repository)
     {
     }
 }

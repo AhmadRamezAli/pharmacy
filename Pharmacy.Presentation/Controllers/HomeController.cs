@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Pharmacy.Domain.Repositories;
 
-namespace Pharmacy.Web.Controllers
+namespace Pharmacy.Presentation.Controllers
 {
     public class HomeController : Controller
     {
@@ -16,7 +17,8 @@ namespace Pharmacy.Web.Controllers
 
         public IActionResult Index()
         {
-            return Ok(_categoryRepository.GetAll());
+            //return Ok(_categoryRepository.GetAll());
+            return View();
         }
 
         public IActionResult Privacy()
@@ -24,6 +26,6 @@ namespace Pharmacy.Web.Controllers
             return View();
         }
 
-        
+
     }
 }

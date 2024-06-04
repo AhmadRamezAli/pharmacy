@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Application.Services;
 using Pharmacy.SharedKernel.DTO;
 using Pharmacy.SharedKernel.Entities;
+using Pharmacy.SharedKernel.Service;
 
 namespace Pharmacy.Presentation.Controllers;
 
@@ -11,10 +12,10 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
     where TCreateRequest :  ICreateRequest
     where TUpdateRequest : IUpdateRequest
 {
-    private readonly BaseService<TEntity> _service;
+    private readonly IService<TEntity> _service;
     private readonly IMapper _mapper;
 
-    public BaseController(BaseService<TEntity> service, IMapper mapper)
+    public BaseController(IService<TEntity> service, IMapper mapper)
     {
         _service = service;
         _mapper = mapper;
@@ -40,17 +41,25 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
     [HttpPost]
     public IActionResult ApplyCreate(TCreateRequest request)
     {
+        if(!ModelState.IsValid)
+        {
+            throw new Exception();
+        }
         var entity = _mapper.Map<TEntity>(request);
         _service.Add(entity);
         return RedirectToAction("Index");
     }
 
-    [HttpPut]
-    public IActionResult ApplyEdit(TUpdateRequest request)
+    [HttpPost]
+    public IActionResult ApplyEdit([FromForm]TUpdateRequest request)
     {
+        if (!ModelState.IsValid)
+        {
+            throw new Exception();
+        }
         var entity = _mapper.Map<TEntity>(request);
         _service.Update(entity);
-        return RedirectToAction("Index");
+        return RedirectToAction(nameof(this.Index));
     }
 
     [HttpDelete]
