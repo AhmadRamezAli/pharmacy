@@ -9,10 +9,16 @@ public class BaseService<TEntity> : IService<TEntity>
     where TEntity : Entity
 {
     private readonly IRepository<TEntity> _repository;
+    private IRepository<Medicine> repository;
 
     public BaseService(IRepository<TEntity> repository)
     {
         _repository = repository;
+    }
+
+    public BaseService(IRepository<Medicine> repository)
+    {
+        this.repository = repository;
     }
 
     public TEntity Add(TEntity entity)

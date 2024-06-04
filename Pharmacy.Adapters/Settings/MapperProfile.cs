@@ -2,7 +2,11 @@
 using Pharmacy.Domain.Entities;
 using Pharmacy.Infrastracture.Models;
 using Pharmacy.Presentation.Controllers;
-using Pharmacy.Presentation.Models;
+using Pharmacy.Presentation.Models.Category;
+using Pharmacy.Presentation.Models.Company;
+using Pharmacy.Presentation.Models.Disease;
+using Pharmacy.Presentation.Models.Medicine;
+using Pharmacy.Presentation.Models.Patient;
 
 namespace Pharmacy.Adapters.Settings;
 
@@ -40,10 +44,16 @@ public class MapperProfile : Profile
         // 
 
         CreateMap<CreateCategoryRequest, Category>();
-        //CreateMap<Category, CreateCategoryRequest>();
-
         CreateMap<UpdateCategoryRequest, Category>();
-        //CreateMap<Category, UpdateCategoryRequest>();
+        CreateMap<CreateCompanyRequest,Company>();
+        CreateMap<UpdateCompanyReques, Company>();
+        CreateMap<CreateMedicineRequest, Medicine>();
+        CreateMap<UpdateMedicineRequest, Medicine>();
+        CreateMap<CreatePatientRequest, Patient>();
+        CreateMap<UpdatePatientRequest, Patient>();
+        CreateMap<CreateDiseaseRequest,Disease>();
+        CreateMap<UpdateDiseaseRequest,Disease>();
+
 
     }
 }

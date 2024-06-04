@@ -10,5 +10,5 @@ namespace Pharmacy.Application.Services.Category;
 
 public interface ICategoryService : IService<Pharmacy.Domain.Entities.Category>
 {
-    public List<Medicine> GetMedicines(int categoryId);
+    public List<Domain.Entities.Medicine> GetMedicines(int categoryId);
 }

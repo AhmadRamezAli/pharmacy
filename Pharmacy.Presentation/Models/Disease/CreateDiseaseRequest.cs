@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.Presentation.Models.Disease
 {
-    public class CreateDisaseRequest:ICreateRequest
+    public class CreateDiseaseRequest:ICreateRequest
     {
         
         [MaxLength(70, ErrorMessage = "WTF")]
