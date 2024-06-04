@@ -13,8 +13,8 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
     where TCreateRequest :  ICreateRequest
     where TUpdateRequest : IUpdateRequest
 {
-    private readonly IService<TEntity> _service;
-    private readonly IMapper _mapper;
+    protected readonly IService<TEntity> _service;
+    protected readonly IMapper _mapper;
 
 	public BaseController(IService<TEntity> service, IMapper mapper)
     {
@@ -28,12 +28,12 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
         var entities = _service.GetAll();
         return View(entities);
     }
-    public IActionResult Create()
+    virtual public IActionResult Create()
     {
         return View();
     }
 
-    public IActionResult Edit(int id)
+    virtual public IActionResult Edit(int id)
     {
         var entity = _service.Get(id);
         return View(_mapper.Map<TUpdateRequest>(entity));
@@ -41,7 +41,7 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
 
 
     [HttpPost]
-    public IActionResult ApplyCreate(TCreateRequest request)
+    virtual public IActionResult ApplyCreate(TCreateRequest request)
     {
         if(!ModelState.IsValid)
         {
@@ -53,7 +53,7 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
     }
 
     [HttpPost]
-    public IActionResult ApplyEdit([FromForm]TUpdateRequest request)
+    virtual public IActionResult ApplyEdit([FromForm]TUpdateRequest request)
     {
         if (!ModelState.IsValid)
         {
