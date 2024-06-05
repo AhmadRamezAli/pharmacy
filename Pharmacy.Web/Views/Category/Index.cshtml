@@ -8,7 +8,7 @@
 			<th scope="col">#</th>
 			<th scope="col">Id</th>
 			<th scope="col">Name</th>
-			<th scope="col">##</th>
+			<th scope="col">Actins</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -19,11 +19,30 @@
 			<th scope="row">@(i + 1)</th>
 			<td>@Model[i].Id</td>
 			<td>@Model[i].Name</td>
-			@* <td><a asp-action="Delete" asp-route="@Model[i].Id">Delete</a> </td>
-			<td><a asp-action="Edit" asp-route="@Model[i].Id" class="btn btn-primary">Edit</a> </td> *@
+			<td>
+				<a asp-controller="Category" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
+					<span></span>
+					<i></i>
+				</a>
+
+			</td>
+			<td>
+
+				<a class="Btn" asp-controller="Category" asp-action="Edit" asp-route-id="@Model[i].Id">
+					Edit
+					<svg class="svg" viewBox="0 0 512 512">
+					</svg>
+				</a>
+
+
+			</td>
 
 		</tr>
 		}
 	</tbody>
 
 </table>
+
+<div class="justify-content-center d-flex">
+	<a type="button" style="width:125px!important" class="Btn btn-secondary .btn-lg" asp-controller="Category" asp-action="Create">Add Category</a>
+</div>
