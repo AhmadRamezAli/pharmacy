@@ -18,5 +18,7 @@ namespace Pharmacy.Presentation.Models.Medicine
         public decimal Dosage { get; set; }
         [MaxLength(70, ErrorMessage = "WTF")]
         public string? ScientificName { get; set; } = null;
+        public int Category { get; set; }
+        public int Company { get; set; }
     }
 }
