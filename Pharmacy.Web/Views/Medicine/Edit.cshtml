@@ -1,0 +1,38 @@
+﻿@model Pharmacy.Presentation.Models.Medicine.UpdateMedicineRequest
+
+<form asp-action="ApplyEdit" asp-controller="Medicine" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input type="text" asp-for="Name" class="form-control" placeholder="Enter Medicine Name">
+        <span asp-validation-for="Name" class="form-text mt-1 mb-1 text-muted text-danger" style="color:red!important"></span>
+
+
+        <label asp-for="Description" class="control-label"></label>
+        <input type="text" asp-for="Description" class="form-control" placeholder="Enter Description">
+        <span asp-validation-for="Description" class="form-text mt-1 mb-1 text-muted text-danger" style="color:red!important"></span>
+
+
+        <label asp-for="Dosage" class="control-label"></label>
+        <input type="text" asp-for="Dosage" class="form-control" placeholder="Enter Dosage">
+        <span asp-validation-for="Dosage" class="form-text mt-1 mb-1 text-muted text-danger" style="color:red!important"></span>
+
+
+        <label asp-for="ScientificName" class="control-label"></label>
+        <input type="text" asp-for="ScientificName" class="form-control" placeholder="Enter scientific Name">
+        <span asp-validation-for="ScientificName" class="form-text mt-1 mb-1 text-muted text-danger" style="color:red!important"></span>
+
+
+        <label asp-for="Company" class="control-label"></label>
+        <input type="text" asp-for="Company" class="form-control" placeholder="Enter Company id">
+        <span asp-validation-for="Company" class="form-text mt-1 mb-1 text-muted text-danger" style="color:red!important"></span>
+
+
+        <label asp-for="Category" class="control-label"></label>
+        <input type="text" asp-for="Category" class="form-control" placeholder="Enter Category id">
+        <span asp-validation-for="Category" class="form-text mt-1 mb-1 text-muted text-danger" style="color:red!important"></span>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>

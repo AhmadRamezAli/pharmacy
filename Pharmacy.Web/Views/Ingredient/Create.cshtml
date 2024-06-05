@@ -1,0 +1,17 @@
+﻿@model Pharmacy.Presentation.Models.Ingredient.CreateIngredientRequest
+
+<form asp-action="ApplyCreate" asp-controller="Ingredient" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input type="text" asp-for="Name" class="form-control" placeholder="Enter Ingredient Name">
+        <span asp-validation-for="Name" class="form-text mt-1 mb-1 text-muted text-danger" style="color:red!important"></span>
+        <label asp-for="Description" class="control-label"></label>
+        <input type="text" asp-for="Description" class="form-control" placeholder="Enter Description ">
+        <span asp-validation-for="Description" class="form-text mt-1 mb-1 text-muted text-danger" style="color:red!important"></span>
+
+    </div>
+ 
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
