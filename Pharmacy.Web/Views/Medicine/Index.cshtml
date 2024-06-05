@@ -1,0 +1,54 @@
+﻿@model List<Pharmacy.Domain.Entities.Medicine>
+
+<h1>Medicine</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Id</th>
+			<th scope="col">Name</th>
+			<th scope="col">Description</th>
+			
+			<th scope="col">Category</th>
+			 
+			<th scope="col">Dosage</th>
+			 
+			<th scope="col">Company</th>
+			
+			<th scope="col">ScientificName </th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (int i = 0; i < Model.Count; i++)
+		{
+
+			<tr>
+				<th scope="row">@(i + 1)</th>
+				<td>@Model[i].Id</td>
+				<td>@Model[i].Name</td>
+				<td>@Model[i].Description</td>
+				<td>@Model[i].Category</td>
+				<td>@Model[i].Dosage</td>
+				<td>@Model[i].Company</td>
+				<td>@Model[i].ScientificName</td>
+				<td>
+					<a  asp-controller="Medicine" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
+							<span></span>
+							<i></i>
+						</a>
+
+				</td>
+				<td>
+
+					<a class="Btn" asp-controller="Medicine" asp-action="Edit" asp-route-id="@Model[i].Id">
+						Edit
+						<svg class="svg" viewBox="0 0 512 512">
+						</svg>
+					</a>
+
+
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

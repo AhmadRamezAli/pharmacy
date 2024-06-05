@@ -11,11 +11,24 @@ namespace Pharmacy.Presentation.Models.Medicine
     public class CreateMedicineRequest:ICreateRequest
     {
         [MaxLength(70, ErrorMessage = "WTF")]
+
         public string Name { get; set; } = null!;
+
         [MaxLength(70, ErrorMessage = "WTF")]
+
         public string Description { get; set; } = null!;
-        public decimal Dosage { get; set; }
+
         [MaxLength(70, ErrorMessage = "WTF")]
-        public string? ScientificName { get; set; } = null;
+
+        public int Category { get; set; }
+
+        [MaxLength(70, ErrorMessage = "WTF")]
+
+        public decimal Dosage { get; set; }
+
+        [MaxLength(70, ErrorMessage = "WTF")]
+
+        public int Company { get; set; }
+        public string ScientificName { get; set; } = null!;
     }
 }
