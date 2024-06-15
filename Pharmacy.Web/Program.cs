@@ -3,6 +3,7 @@ using Pharmacy.Infrastracture.DI;
 using Pharmacy.Infrastracture.Repositories;
 using Pharmacy.Adapters.DI;
 using Pharmacy.Application.DI;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ var conncetionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddInfrastructure(conncetionString);
 builder.Services.AddApplication();
 builder.Services.AddControllersWithViews();
-
+builder.Host.UseSerilog((context,loggerConfig)=>loggerConfig.ReadFrom.Configuration(context.Configuration));
 
 
 var app = builder.Build();

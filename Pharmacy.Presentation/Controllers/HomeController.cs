@@ -17,7 +17,7 @@ namespace Pharmacy.Presentation.Controllers
 
         public IActionResult Index()
         {
-            //return Ok(_categoryRepository.GetAll());
+
             return View();
         }
 
