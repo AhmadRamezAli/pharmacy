@@ -22,6 +22,7 @@
 	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pharmacy.Adapters\Pharmacy.Adapters.csproj" />
+    <ProjectReference Include="..\Pharmacy.Infrastracture\Pharmacy.Infrastracture.csproj" />
     <ProjectReference Include="..\Pharmacy.Presentation\Pharmacy.Presentation.csproj" />
   </ItemGroup>
 
