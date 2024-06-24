@@ -11,7 +11,6 @@ namespace Pharmacy.Infrastracture.Models
             PatientDiseases = new HashSet<PatientDiseaseDAO>();
         }
 
-        public int Id { get; set; }
         public string Name { get; set; } = null!;
 
         public virtual ICollection<DiseaseMedicineDAO> DiseaseMedicines { get; set; }
