@@ -41,7 +41,7 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
 
 
     [HttpPost]
-    virtual public IActionResult ApplyCreate(TCreateRequest request)
+    virtual public IActionResult ApplyCreate([FromForm]TCreateRequest request)
     {
         if(!ModelState.IsValid)
         {
