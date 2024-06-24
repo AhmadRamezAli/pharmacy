@@ -5,6 +5,7 @@ using Pharmacy.Presentation.Controllers;
 using Pharmacy.Presentation.Models.Category;
 using Pharmacy.Presentation.Models.Company;
 using Pharmacy.Presentation.Models.Disease;
+using Pharmacy.Presentation.Models.Ingredient;
 using Pharmacy.Presentation.Models.Medicine;
 using Pharmacy.Presentation.Models.Patient;
 
@@ -73,5 +74,10 @@ public class MapperProfile : Profile
         CreateMap<Disease,CreateDiseaseRequest>();
         CreateMap<Disease,UpdateDiseaseRequest>();
 
-    }
+		//
+		CreateMap<CreateIngredientRequest, Ingredient>();
+		CreateMap<UpdateIngredientRequest, Ingredient>();
+		CreateMap<Ingredient, CreateIngredientRequest>();
+		CreateMap<Ingredient, UpdateIngredientRequest>();
+	}
 }
