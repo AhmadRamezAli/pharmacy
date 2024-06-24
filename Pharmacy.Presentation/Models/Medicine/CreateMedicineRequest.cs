@@ -18,16 +18,13 @@ namespace Pharmacy.Presentation.Models.Medicine
 
         public string Description { get; set; } = null!;
 
-        [MaxLength(70, ErrorMessage = "WTF")]
+        
 
         public int Category { get; set; }
 
-        [MaxLength(70, ErrorMessage = "WTF")]
+        
 
         public decimal Dosage { get; set; }
-
-        [MaxLength(70, ErrorMessage = "WTF")]
-
         public int Company { get; set; }
         public string ScientificName { get; set; } = null!;
     }
