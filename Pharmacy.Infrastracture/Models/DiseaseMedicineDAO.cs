@@ -5,7 +5,6 @@ namespace Pharmacy.Infrastracture.Models
 {
     public partial class DiseaseMedicineDAO : DAO
     {
-        public int Id { get; set; }
         public int Disease { get; set; }
         public int Medicine { get; set; }
 

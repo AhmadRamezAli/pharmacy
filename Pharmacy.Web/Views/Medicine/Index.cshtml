@@ -10,13 +10,13 @@
 			<th scope="col">Id</th>
 			<th scope="col">Name</th>
 			<th scope="col">Description</th>
-			
+
 			<th scope="col">Category</th>
-			 
+
 			<th scope="col">Dosage</th>
-			 
+
 			<th scope="col">Company</th>
-			
+
 			<th scope="col">ScientificName </th>
 		</tr>
 	</thead>
@@ -34,19 +34,68 @@
 				<td>@Model[i].Company</td>
 				<td>@Model[i].ScientificName</td>
 				<td>
-					<a  asp-controller="Medicine" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
-							<span></span>
-							<i></i>
-						</a>
+					<div class="mt-2">
+                        <a asp-controller="Medicine" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
+                            <i class="bi bi-trash"></i>
+                        </a>
+					</div>
+					
 
 				</td>
 				<td>
 
-					<a class="Btn" asp-controller="Medicine" asp-action="Edit" asp-route-id="@Model[i].Id">
-						Edit
-						<svg class="svg" viewBox="0 0 512 512">
-						</svg>
-					</a>
+					<button type="button" class="btn  " data-bs-toggle="modal" data-bs-target="#edit">
+						<i class="bi bi-pencil-square"></i>
+					</button>
+
+					<!-- Modal -->
+					<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="editLabel">Modal title</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<form asp-action="ApplyEdit" asp-controller="Medicine" method="post">
+
+										<div class="form-group">
+											<label for="Name" class="control-label"></label>
+											<input type="text" name="Name" class="form-control" placeholder="@Model[i].Name">
+
+											<label for="Description" class="control-label"></label>
+											<input type="text" name="Description" class="form-control" placeholder="@Model[i].Description">
+
+
+											<label for="Dosage" class="control-label"></label>
+											<input type="number" name="Dosage" class="form-control" placeholder="@Model[i].Dosage">
+
+
+											<label for="ScientificName" class="control-label"></label>
+											<input type="text" name="ScientificName" class="form-control" placeholder="@Model[i].ScientificName">
+
+
+											<label for="Company" class="control-label"></label>
+											<input type="number" name="Company" class="form-control" placeholder="@Model[i].Company">
+
+
+											<label for="Category" class="control-label"></label>
+											<input type="number" name="Category" class="form-control" placeholder="@Model[i].Category">
+
+										</div>
+
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-primary ">Submit</button>
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+										</div>
+
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
 
 
 				</td>
@@ -54,6 +103,63 @@
 		}
 	</tbody>
 </table>
-<div class="justify-content-center d-flex">
-	<a type="button" style="width:125px!important" class="Btn btn-secondary .btn-lg" asp-controller="Medicine" asp-action="Create">Add Medicine</a>
+
+
+
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+	<div class="justify-content-center">
+		<i class="bi bi-patch-plus"></i>
+		Add Medicine
+	</div>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form action="@Url.Action("ApplyCreate","Medicine")" method="post">
+
+					<div class="form-group">
+						<label for="Name" class="control-label"></label>
+						<input type="text" name="Name" class="form-control" placeholder="Enter Medicine Name">
+
+
+						<label for="Description" class="control-label"></label>
+						<input type="text" name="Description" class="form-control" placeholder="Enter Description">
+
+
+						<label for="Dosage" class="control-label"></label>
+						<input type="number" name="Dosage" class="form-control" placeholder="Enter Dosage">
+
+
+						<label for="scientificName" class="control-label"></label>
+						<input type="text" name="scientificName" class="form-control" placeholder="Enter scientific Name">
+
+
+						<label for="company" class="control-label"></label>
+						<input type="number" name="company" class="form-control" placeholder="Enter Company id">
+
+
+						<label for="Category" class="control-label"></label>
+						<input type="number" name="Category" class="form-control" placeholder="Enter Category id">
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary ">Submit</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
 </div>
+
+
