@@ -7,9 +7,9 @@
 	<thead>
 		<tr>
 			<th scope="col">#</th>
-			<th scope="col">Id</th>
 			<th scope="col">Name</th>
 			<th scope="col">Discription</th>
+			<th scope="col">Actions</th>
 
 		</tr>
 	</thead>
@@ -19,23 +19,55 @@
 
 			<tr>
 				<th scope="row">@(i + 1)</th>
-				<td>@Model[i].Id</td>
 				<td>@Model[i].Name</td>
 				<td>@Model[i].Description</td>
 				<td>
-					<a  asp-controller="Ingredient" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
-							<span></span>
-							<i></i>
+					
+							
+					<div class="mt-2">
+						<a asp-controller="Ingredient" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
+							<i class="bi bi-trash"></i>
 						</a>
-
+					</div>
 				</td>
 				<td>
 
-					<a class="Btn" asp-controller="Ingredient" asp-action="Edit" asp-route-id="@Model[i].Id">
-						Edit
-						<svg class="svg" viewBox="0 0 512 512">
-						</svg>
-					</a>
+					<button type="button" class="btn  " data-bs-toggle="modal" data-bs-target="#edit">
+						<i class="bi bi-pencil-square"></i>
+					</button>
+
+					<!-- Modal -->
+					<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="editLabel">Modal title</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<form asp-action="ApplyEdit" asp-controller="Ingredient" method="post">
+
+										<div class="form-group">
+											<label for="Name" class="control-label"></label>
+											<input type="text" name="Name" class="form-control" placeholder="Enter Ingredient Name">
+											<label for="Description" class="control-label"></label>
+											<input type="text" name="Description" class="form-control" placeholder="Enter Description">
+										</div>
+
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-primary ">Submit</button>
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+										</div>
+
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+
 
 
 				</td>
@@ -43,6 +75,43 @@
 		}
 	</tbody>
 </table>
-<div class="justify-content-center d-flex">
-	<a type="button" style="width:125px!important" class="Btn btn-secondary .btn-lg" asp-controller="Ingredient" asp-action="Create">Add Ingredient</a>
+
+
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+	<div class="justify-content-center">
+		<i class="bi bi-patch-plus"></i>
+		Add Ingredient
+	</div>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form action="@Url.Action("ApplyCreate","Ingredient")" method="post">
+
+					<div class="form-group">
+						<label for="Name" class="control-label"></label>
+						<input type="text" name="Name" class="form-control" placeholder="Enter Ingredient Name">
+						<label for="Description" class="control-label"></label>
+						<input type="text" name="Description" class="form-control" placeholder="Enter Description ">
+					</div>
+
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary ">Submit</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
 </div>
+
+
