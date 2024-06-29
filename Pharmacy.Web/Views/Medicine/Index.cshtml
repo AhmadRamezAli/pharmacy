@@ -7,7 +7,6 @@
 	<thead>
 		<tr>
 			<th scope="col">#</th>
-			<th scope="col">Id</th>
 			<th scope="col">Name</th>
 			<th scope="col">Description</th>
 
@@ -18,6 +17,7 @@
 			<th scope="col">Company</th>
 
 			<th scope="col">ScientificName </th>
+			<th scope="col">Actions</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,7 +26,6 @@
 
 			<tr>
 				<th scope="row">@(i + 1)</th>
-				<td>@Model[i].Id</td>
 				<td>@Model[i].Name</td>
 				<td>@Model[i].Description</td>
 				<td>@Model[i].Category</td>
@@ -57,7 +56,7 @@
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-									<form asp-action="ApplyEdit" asp-controller="Medicine" method="post">
+									<form action="@Url.Action("ApplyEdit","Medicine")" method="post">
 
 										<div class="form-group">
 											<label for="Name" class="control-label"></label>
@@ -142,11 +141,11 @@
 
 
 						<label for="company" class="control-label"></label>
-						<input type="number" name="company" class="form-control" placeholder="Enter Company id">
+						<input type="number" name="company" class="form-control" placeholder="Enter Company">
 
 
 						<label for="Category" class="control-label"></label>
-						<input type="number" name="Category" class="form-control" placeholder="Enter Category id">
+						<input type="number" name="Category" class="form-control" placeholder="Enter Category">
 
 					</div>
 
