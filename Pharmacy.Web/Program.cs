@@ -4,17 +4,23 @@ using Pharmacy.Infrastracture.Repositories;
 using Pharmacy.Adapters.DI;
 using Pharmacy.Application.DI;
 using Serilog;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Pharmacy.Infrastracture.DataContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddAdapters();
-var conncetionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddInfrastructure(conncetionString);
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+
+
+
+builder.Services.AddInfrastructure(connectionString);
 builder.Services.AddApplication();
 builder.Services.AddControllersWithViews();
 builder.Host.UseSerilog((context,loggerConfig)=>loggerConfig.ReadFrom.Configuration(context.Configuration));
-
 
 var app = builder.Build();
 
@@ -31,6 +37,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
