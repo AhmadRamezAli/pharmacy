@@ -73,7 +73,7 @@ public class BaseRepository<TEntity, TDAO> : IRepository<TEntity>
          TDAO dao = _mapper.Map<TDAO>(entity);
         _context.Set<TDAO>().Update(dao);
         _context.SaveChanges();
-        entity.Id = dao.Id;
+       // entity.Id = dao.Id;
     }
     #endregion
 }
