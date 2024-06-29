@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Pharmacy.Infrastracture.Models;
-
 namespace Pharmacy.Infrastracture.DataContext;
 
-public partial class PharmacyContext : DbContext
+public partial class PharmacyContext : IdentityDbContext<IdentityUser>
 {
     public PharmacyContext()
     {
@@ -31,6 +29,11 @@ public partial class PharmacyContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<IdentityUser>().Property(x => x.Id).HasMaxLength(225);
+        modelBuilder.Entity<IdentityRole>().Property(x => x.Id).HasMaxLength(225);
+        modelBuilder.Entity<IdentityUserLogin<string>>().Property(x => x.ProviderKey).HasMaxLength(225);
+        
+
 
         modelBuilder.UseCollation("Arabic_CI_AS");
 
@@ -178,8 +181,7 @@ public partial class PharmacyContext : DbContext
                 .HasConstraintName("FK_PatientDisease_Patient");
         });
 
-        OnModelCreatingPartial(modelBuilder);
+        base.OnModelCreating(modelBuilder);
     }
 
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
