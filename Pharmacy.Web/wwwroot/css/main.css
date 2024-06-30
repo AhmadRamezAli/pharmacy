@@ -2872,3 +2872,20 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e58b18;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}

@@ -2,19 +2,23 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Pharmacy.Infrastracture.Models;
+using Pharmacy.Presentation.Models.User;
+
 namespace Pharmacy.Infrastracture.DataContext;
 
-public partial class PharmacyContext : IdentityDbContext<IdentityUser>
+public partial class PharmacyContext : IdentityDbContext<User>
 {
-    public PharmacyContext()
-    {
-    }
+
 
     public PharmacyContext(DbContextOptions<PharmacyContext> options)
         : base(options)
     {
     }
 
+    protected PharmacyContext()
+    {
+    }
+   // public virtual DbSet<User> Users { get; set; } = null!;
     public virtual DbSet<CategoryDAO> Categories { get; set; } = null!;
     public virtual DbSet<CompanyDAO> Companies { get; set; } = null!;
     public virtual DbSet<DiseaseDAO> Diseases { get; set; } = null!;
@@ -29,9 +33,9 @@ public partial class PharmacyContext : IdentityDbContext<IdentityUser>
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<IdentityUser>().Property(x => x.Id).HasMaxLength(225);
-        modelBuilder.Entity<IdentityRole>().Property(x => x.Id).HasMaxLength(225);
-        modelBuilder.Entity<IdentityUserLogin<string>>().Property(x => x.ProviderKey).HasMaxLength(225);
+        //modelBuilder.Entity<User>().Property(x => x.Id).HasMaxLength(225);
+        //modelBuilder.Entity<IdentityRole>().Property(x => x.Id).HasMaxLength(225);
+        //modelBuilder.Entity<IdentityUserLogin<string>>().Property(x => x.ProviderKey).HasMaxLength(225);
         
 
 

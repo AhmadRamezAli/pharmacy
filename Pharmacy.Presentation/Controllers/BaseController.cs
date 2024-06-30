@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Application.Services;
 using Pharmacy.Application.Services.Category;
@@ -22,17 +23,18 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
         _mapper = mapper;
     }
 
-
+    [Authorize]
 	public IActionResult Index()
     {
         var entities = _service.GetAll();
         return View(entities);
     }
+    [Authorize]
     virtual public IActionResult Create()
     {
         return View();
     }
-
+    [Authorize]
     virtual public IActionResult Edit(int id)
     {
         var entity = _service.Get(id);
@@ -41,6 +43,7 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
 
 
     [HttpPost]
+  
     virtual public IActionResult ApplyCreate([FromForm]TCreateRequest request)
     {
         if(!ModelState.IsValid)
