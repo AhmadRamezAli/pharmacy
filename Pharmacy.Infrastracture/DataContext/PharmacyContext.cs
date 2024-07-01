@@ -6,7 +6,7 @@ using Pharmacy.Presentation.Models.User;
 
 namespace Pharmacy.Infrastracture.DataContext;
 
-public partial class PharmacyContext : IdentityDbContext<User>
+public partial class PharmacyContext : IdentityDbContext<Pharmacy.Presentation.Models.User.User>
 {
 
 
@@ -33,10 +33,9 @@ public partial class PharmacyContext : IdentityDbContext<User>
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //modelBuilder.Entity<User>().Property(x => x.Id).HasMaxLength(225);
-        //modelBuilder.Entity<IdentityRole>().Property(x => x.Id).HasMaxLength(225);
-        //modelBuilder.Entity<IdentityUserLogin<string>>().Property(x => x.ProviderKey).HasMaxLength(225);
-        
+        modelBuilder.Entity<User>().Property(x => x.Id).HasMaxLength(225);
+        modelBuilder.Entity<IdentityRole>().Property(x => x.Id).HasMaxLength(225);
+        modelBuilder.Entity<IdentityUserLogin<string>>().Property(x => x.ProviderKey).HasMaxLength(225);
 
 
         modelBuilder.UseCollation("Arabic_CI_AS");

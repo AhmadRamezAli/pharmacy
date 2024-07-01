@@ -1,4 +1,4 @@
-﻿
+﻿@model Pharmacy.Presentation.Models.User.CreateUserRequest;
 <section class="vh-100" id="login">
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -7,7 +7,7 @@
                      class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form>
+                <form asp-action="AsyncLogIn" asp-controller="Account">
                     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                         <p class="lead fw-normal mb-0 me-3">Sign in with</p>
                         <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn  btn-floating mx-1" style="background:Chocolate">
@@ -29,14 +29,14 @@
 
                     <!-- Email input -->
                     <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="email" id="form3Example3" class="form-control form-control-lg"
+                        <input type="email" id="form3Example3" class="form-control form-control-lg" asp-for="Email"
                                placeholder="Enter a valid email address" />
-                        <label class="form-label" for="form3Example3">Email address</label>
+                        <label class="form-label" for="form3Example3">Email </label>
                     </div>
 
                     <!-- Password input -->
                     <div data-mdb-input-init class="form-outline mb-3">
-                        <input type="password" id="form3Example4" class="form-control form-control-lg"
+                        <input type="password" id="form3Example4" class="form-control form-control-lg" asp-for="Password"
                                placeholder="Enter password" />
                         <label class="form-label" for="form3Example4">Password</label>
                     </div>
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn  btn-lg"
+                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn  btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;background:Chocolate !important">
                             Login
                         </button>

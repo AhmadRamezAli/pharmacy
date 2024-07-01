@@ -40,7 +40,19 @@ public static class DependencyInjection
 
         services.AddScoped<IPatientRepository, PatientRepository>();
 
-        services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+        services.AddIdentity<User,IdentityRole>(options => 
+        {
+            options.SignIn.RequireConfirmedAccount = true;
+            options.Password.RequireDigit=false;
+            options.Password.RequiredLength = 6;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireUppercase = false;
+            options.Password.RequireLowercase = false;
+            options.User.AllowedUserNameCharacters = "";
+            
+            
+            
+            })
         .AddEntityFrameworkStores<PharmacyContext>().AddSignInManager<SignInManager<User>>().AddUserManager<UserManager<User>>();
     }
     

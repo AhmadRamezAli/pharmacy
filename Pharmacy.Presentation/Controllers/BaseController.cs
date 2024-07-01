@@ -23,7 +23,7 @@ public class BaseController<TEntity, TCreateRequest,TUpdateRequest> : Controller
         _mapper = mapper;
     }
 
-    [Authorize]
+    [Authorize ]
 	public IActionResult Index()
     {
         var entities = _service.GetAll();

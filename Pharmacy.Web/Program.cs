@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Pharmacy.Infrastracture.DataContext;
 using System.Net;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.CodeAnalysis.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,9 +18,8 @@ builder.Services.AddAdapters();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 
-
-
 builder.Services.AddInfrastructure(connectionString);
+
 
 
 builder.Services.AddApplication();
@@ -35,8 +35,9 @@ builder.Services.AddAuthentication(x =>
 ).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, x =>
 {
     //x.AccessDeniedPath = "Authentication/LogIn";
-    x.LoginPath = "/Authentication/LogIn/id=login";
+    x.LoginPath = "/Account/LogIn/id=login";
     x.Cookie.Name = "run";
+    
 }
 );
 builder.Services.AddAuthorization();
@@ -61,4 +62,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+app.Run();  

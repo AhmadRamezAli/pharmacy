@@ -1,4 +1,4 @@
-﻿@model Pharmacy.Presentation.Models.User.User
+﻿@model Pharmacy.Presentation.Models.User.CreateUserRequest
 
 <section class="vh-100" id="register">
     <div class="container-fluid h-custom">
@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <form asp-controller="Account" asp-action="ApplyRegister" method="post">
-                    @*<div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                         <p class="lead fw-normal mb-0 me-3">Sign in with</p>
                         <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn  btn-floating mx-1" style="background:Chocolate">
                             <i class="fab fa-facebook-f"></i>
@@ -83,9 +83,7 @@
                             Don't have an account? <a href="#!"
                                                       class="link-danger" style="color:Black">Register</a>
                         </p>
-                    </div>*@
-                    
-                    <button type="submit">submit</button>
+                    </div>
 
                 </form>
             </div>
