@@ -2,7 +2,14 @@
 @{
 	Layout = "~/Views/Shared/_LayoutSecond.cshtml";
 }
-<h1>Medicine</h1>
+
+
+
+
+
+<div style="display:flex;justify-content:center">
+	<h1 style="padding:3px; background-color:#feb900; border-radius:5px;margin-bottom:10px">Medicines</h1>
+</div>
 <table class="table">
 	<thead>
 		<tr>
@@ -28,27 +35,35 @@
 				<th scope="row">@(i + 1)</th>
 				<td>@Model[i].Name</td>
 				<td>@Model[i].Description</td>
-				<td>@Model[i].Category</td>
+				<td>@Model[i].CategoryNavigation.Name</td>
 				<td>@Model[i].Dosage</td>
-				<td>@Model[i].Company</td>
+				<td>@Model[i].CompanyNavigation.Name</td>
 				<td>@Model[i].ScientificName</td>
 				<td>
 					<div class="mt-2">
-                        <a asp-controller="Medicine" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
-                            <i class="bi bi-trash"></i>
-                        </a>
+						<a asp-controller="Medicine" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
+							<i class="bi bi-trash"></i>
+						</a>
 					</div>
-					
 
+
+				</td>
+
+				<td>
+					<a class="btn" title="Attach" href="@Url.Action("Attach")?id=@Model[i].Id">
+							@*<i class="fa fa-info"></i>*@
+						<i class="fa fa-paperclip" aria-hidden="true"></i>
+
+					</a>
 				</td>
 				<td>
 
-					<button type="button" class="btn  " data-bs-toggle="modal" data-bs-target="#edit">
+					<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#edit-@Model[i].Id">
 						<i class="bi bi-pencil-square"></i>
 					</button>
 
 					<!-- Modal -->
-					<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+					<div class="modal fade" id="edit-@Model[i].Id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -56,31 +71,32 @@
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-									<form action="@Url.Action("ApplyEdit","Medicine")" method="post">
+									<form asp-action="ApplyEdit" asp-controller="Medicine" method="post">
 
 										<div class="form-group">
-											<label for="Name" class="control-label"></label>
+											<label for="Name" class="control-label">Name</label>
 											<input type="text" name="Name" class="form-control" value="@Model[i].Name">
 											<input type="text" name="id" class="form-control d-none" value="@Model[i].Id">
 
-											<label for="Description" class="control-label"></label>
+											<label for="Description" class="control-label">Description</label>
 											<input type="text" name="Description" class="form-control" value="@Model[i].Description">
 
 
-											<label for="Dosage" class="control-label"></label>
+											<label for="Dosage" class="control-label">Dosage</label>
 											<input type="number" name="Dosage" class="form-control" value="@Model[i].Dosage">
 
 
-											<label for="ScientificName" class="control-label"></label>
+											<label for="ScientificName" class="control-label">Scientific Name</label>
 											<input type="text" name="ScientificName" class="form-control" value="@Model[i].ScientificName">
 
 
-											<label for="Company" class="control-label"></label>
-											<input type="number" name="Company" class="form-control" value="@Model[i].Company">
-
+											<label for="company" class="control-label"></label>
+											@*<input type="number" name="company" class="form-control" placeholder="Enter Company">*@
+											@Html.DropDownList("company", (SelectList)@ViewBag.CompanyList, "Please Select The Company", htmlAttributes: new { @class = "form-control" })
 
 											<label for="Category" class="control-label"></label>
-											<input type="number" name="Category" class="form-control" value="@Model[i].Category">
+											@*<input type="number" name="Category" class="form-control" placeholder="Enter Category">*@
+											@Html.DropDownList("Category", (SelectList)@ViewBag.CategoryList, "Please Select The Category",htmlAttributes: new { @class = "form-control" })
 
 										</div>
 
@@ -125,29 +141,29 @@
 				<form action="@Url.Action("ApplyCreate","Medicine")" method="post">
 
 					<div class="form-group">
-						<label for="Name" class="control-label"></label>
+						<label for="Name" class="control-label">Name</label>
 						<input type="text" name="Name" class="form-control" placeholder="Enter Medicine Name">
 
 
-						<label for="Description" class="control-label"></label>
+						<label for="Description" class="control-label">Description</label>
 						<input type="text" name="Description" class="form-control" placeholder="Enter Description">
 
 
-						<label for="Dosage" class="control-label"></label>
+						<label for="Dosage" class="control-label">Dosage</label>
 						<input type="number" name="Dosage" class="form-control" placeholder="Enter Dosage">
 
 
-						<label for="scientificName" class="control-label"></label>
+						<label for="scientificName" class="control-label">Scientific Name</label>
 						<input type="text" name="scientificName" class="form-control" placeholder="Enter scientific Name">
 
 
 						<label for="company" class="control-label"></label>
-						<input type="number" name="company" class="form-control" placeholder="Enter Company">
-
+						@*<input type="number" name="company" class="form-control" placeholder="Enter Company">*@
+						@Html.DropDownList("company", (SelectList)@ViewBag.CompanyList, "Please Select The Company", htmlAttributes: new { @class = "form-control" })
 
 						<label for="Category" class="control-label"></label>
-						<input type="number" name="Category" class="form-control" placeholder="Enter Category">
-
+						@*<input type="number" name="Category" class="form-control" placeholder="Enter Category">*@
+						@Html.DropDownList("Category", (SelectList)@ViewBag.CategoryList, "Please Select The Category",htmlAttributes: new { @class = "form-control" })
 					</div>
 
 					<div class="modal-footer">
@@ -161,5 +177,4 @@
 		</div>
 	</div>
 </div>
-
 

@@ -1,0 +1,107 @@
+﻿@model List<Pharmacy.Domain.Entities.Medicine>
+@{
+	Layout = "~/Views/Shared/_LayoutSecond.cshtml";
+}
+<div style="display:flex;justify-content:center">
+	<h1 style="padding:3px; background-color:#feb900; border-radius:5px;margin-bottom:10px">Medicines Of The Category : @ViewBag.Category.Name</h1>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Name</th>
+			<th scope="col">Description</th>
+
+
+			<th scope="col">Dosage</th>
+
+			<th scope="col">Company</th>
+
+			<th scope="col">ScientificName </th>
+			@*<th scope="col">Actions</th>*@
+		</tr>
+	</thead>
+	<tbody>
+		@for (int i = 0; i < Model.Count; i++)
+		{
+
+			<tr>
+				<th scope="row">@(i + 1)</th>
+				<td>@Model[i].Name</td>
+				<td>@Model[i].Description</td>
+				<td>@Model[i].Dosage</td>
+				<td>@Model[i].CompanyNavigation.Name</td>
+				<td>@Model[i].ScientificName</td>
+			@*	<td>
+					<div class="mt-2">
+						<a asp-controller="Medicine" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
+							<i class="bi bi-trash"></i>
+						</a>
+					</div>
+
+
+				</td>*@
+				@*<td>
+
+					<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#edit-@Model[i].Id">
+						<i class="bi bi-pencil-square"></i>
+					</button>
+
+					<!-- Modal -->
+					<div class="modal fade" id="edit-@Model[i].Id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="editLabel">Modal title</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<form asp-action="ApplyEdit" asp-controller="Medicine" method="post">
+
+										<div class="form-group">
+											<label for="Name" class="control-label"></label>
+											<input type="text" name="Name" class="form-control" value="@Model[i].Name">
+											<input type="text" name="id" class="form-control d-none" value="@Model[i].Id">
+
+											<label for="Description" class="control-label"></label>
+											<input type="text" name="Description" class="form-control" value="@Model[i].Description">
+
+
+											<label for="Dosage" class="control-label"></label>
+											<input type="number" name="Dosage" class="form-control" value="@Model[i].Dosage">
+
+
+											<label for="ScientificName" class="control-label"></label>
+											<input type="text" name="ScientificName" class="form-control" value="@Model[i].ScientificName">
+
+
+											<label for="Company" class="control-label"></label>
+											<input type="number" name="Company" class="form-control" value="@Model[i].Company">
+
+
+											<label for="Category" class="control-label"></label>
+											<input type="number" name="Category" class="form-control" value="@Model[i].Category">
+
+										</div>
+
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-primary ">Submit</button>
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+										</div>
+
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+
+				</td>*@
+			</tr>
+		}
+	</tbody>
+</table>
+

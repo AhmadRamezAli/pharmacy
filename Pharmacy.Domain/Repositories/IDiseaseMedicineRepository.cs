@@ -10,5 +10,6 @@ namespace Pharmacy.Domain.Repositories
 {
     public interface IDiseaseMedicineRepository : IRepository<DiseaseMedicine>
     {
+
     }
 }

@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    
     <!-- Vendor CSS Files -->
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -24,7 +24,9 @@
     <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet">
 
+    
     <!-- Main CSS File -->
     <link href="~/css/main.css" rel="stylesheet">
 
@@ -39,42 +41,44 @@
 
 <body class="index-page">
 
-    <header id="header" class="header d-flex align-items-center fixed-top">
+    <header id="header" class="header d-flex align-items-center " style="margin-bottom:auto">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
             
-            <nav id="navmenu" class="navmenu text-black">
-                <ul>
-                    <li><a asp-action="Index" asp-controller="Home">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a asp-action="Index" asp-controller="Medicine">Medicines</a></li>
-                    <li><a asp-action="Index" asp-controller="Ingredient">Ingredient</a></li>
-                    <li><a asp-action="Index" asp-controller="Disease">Diseases</a></li>
-                    <li><a asp-action="Index" asp-controller="Company">Companies</a></li>
-                    <li><a asp-action="Index" asp-controller="Category">Categories</a></li>
+            <nav id="navmenu"  class="navmenu text-black " >
+                <ul >
+                    <li><a asp-action="Index" asp-controller="Home" style="color:black">Home</a></li>
+                    <li><a href="about.html" style="color:black">About</a></li>
+                    <li><a asp-action="Index" asp-controller="Medicine" style="color:black">Medicines</a></li>
+                    <li><a asp-action="Index" asp-controller="Ingredient" style="color:black">Ingredient</a></li>
+                    <li><a asp-action="Index" asp-controller="Disease" style="color:black">Diseases</a></li>
+                    <li><a asp-action="Index" asp-controller="Company" style="color:black">Companies</a></li>
+                    <li><a asp-action="Index" asp-controller="Category" style="color:black">Categories</a></li>
+                    <li><a asp-action="Index" asp-controller="Patient" style="color:black">Patients</a></li>
 
 
+@*
                     <li class="dropdown">
-                        <a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <a href="#" style="color:black"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
-                            <li><a href="#">Dropdown 1</a></li>
+                            <li><a href="#" style="color:black">Dropdown 1</a></li>
                             <li class="dropdown">
-                                <a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <a href="#" style="color:black"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                                 <ul>
-                                    <li><a href="#">Deep Dropdown 1</a></li>
-                                    <li><a href="#">Deep Dropdown 2</a></li>
-                                    <li><a href="#">Deep Dropdown 3</a></li>
-                                    <li><a href="#">Deep Dropdown 4</a></li>
-                                    <li><a href="#">Deep Dropdown 5</a></li>
+                                    <li><a href="#" style="color:black" >Deep Dropdown 1</a></li>
+                                    <li><a href="#" style="color:black">Deep Dropdown 2</a></li>
+                                    <li><a href="#" style="color:black">Deep Dropdown 3</a></li>
+                                    <li><a href="#" style="color:black">Deep Dropdown 4</a></li>
+                                    <li><a href="#" style="color:black">Deep Dropdown 5</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Dropdown 2</a></li>
-                            <li><a href="#">Dropdown 3</a></li>
-                            <li><a href="#">Dropdown 4</a></li>
+                            <li><a href="#" style="color:black">Dropdown 2</a></li>
+                            <li><a href="#" style="color:black">Dropdown 3</a></li>
+                            <li><a href="#" style="color:black">Dropdown 4</a></li>
                         </ul>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
-                </ul>
+*@                </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
@@ -121,7 +125,10 @@
         </div>
          -->
     </main>
-    <div style="margin-bottom:500px">   @RenderBody()</div>
+    <div style="min-height:300px !important">  
+       <partial name="_Notification"/>
+        @RenderBody()
+        </div>
   
 
     <footer id="footer" class="footer">
@@ -199,6 +206,7 @@
 
     <!-- Main JS File -->
     <script src="~/js/main.js"></script>
+    @RenderSection("Scripts", required: false)
 
 </body>
 

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Pharmacy.Application.Services.Company;
 using Pharmacy.Domain.Entities;
 using Pharmacy.Presentation.Models.Company;
@@ -14,7 +15,7 @@ namespace Pharmacy.Presentation.Controllers
 	public class CompanyController : BaseController<Company, CreateCompanyRequest, UpdateCompanyReques>
 	{
 		public CompanyController(ICompanyService service, IMapper mapper) : base(service, mapper)
-		{
+        {
 		}
 	}
 }

@@ -1,5 +1,8 @@
 ﻿@model Pharmacy.Presentation.Models.User.CreateUserRequest;
-<section class="vh-100" id="login">
+@{
+	Layout = "~/Views/Shared/_LayoutSecond.cshtml";
+}
+<section  id="login">
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-9 col-lg-6 col-xl-5">
@@ -8,32 +11,14 @@
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <form asp-action="AsyncLogIn" asp-controller="Account">
-                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                        <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-                        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn  btn-floating mx-1" style="background:Chocolate">
-                            <i class="fab fa-facebook-f"></i>
-                        </button>
-
-                        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn  btn-floating mx-1" style="background:Chocolate">
-                            <i class="fab fa-twitter"></i>
-                        </button>
-
-                        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn  btn-floating mx-1" style="background:Chocolate">
-                            <i class="fab fa-linkedin-in"></i>
-                        </button>
-                    </div>
-
-                    <div class="divider d-flex align-items-center my-4">
-                        <p class="text-center fw-bold mx-3 mb-0">Or</p>
-                    </div>
-
                     <!-- Email input -->
                     <div data-mdb-input-init class="form-outline mb-4">
                         <input type="email" id="form3Example3" class="form-control form-control-lg" asp-for="Email"
                                placeholder="Enter a valid email address" />
                         <label class="form-label" for="form3Example3">Email </label>
                     </div>
-
+                    <input type="text" class="form-control d-none form-control-lg" asp-for="ReturnUrl"
+                           value=@ViewBag.returnUrl/>
                     <!-- Password input -->
                     <div data-mdb-input-init class="form-outline mb-3">
                         <input type="password" id="form3Example4" class="form-control form-control-lg" asp-for="Password"
@@ -58,7 +43,7 @@
                             Login
                         </button>
                         <p class="small fw-bold mt-2 pt-1 mb-0">
-                            Don't have an account? <a href="#!"
+                            Don't have an account? <a href="/Account/Register"
                                                       class="link-danger" style="color:Black">Register</a>
                         </p>
                     </div>

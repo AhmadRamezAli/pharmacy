@@ -18,5 +18,7 @@ namespace Pharmacy.Infrastracture.Repositories
         public CompanyRepository(PharmacyContext context, IMapper mapper) : base(context, mapper)
         {
         }
+
+
     }
 }

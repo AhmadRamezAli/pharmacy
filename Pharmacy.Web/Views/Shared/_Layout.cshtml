@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -42,7 +42,7 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a asp-controller="Home" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="~//img/logo.png" alt=""> -->
                 <h1 class="sitename">Health Care</h1> <span>.</span>
@@ -58,27 +58,23 @@
                     <li><a asp-action="Index" asp-controller="Company">Companies</a></li>
                     <li><a asp-action="Index" asp-controller="Category">Categories</a></li>
 
+                    <li><a asp-action="Index" asp-controller="Patient" style="color:black">Patients</a></li>
 
                     <li class="dropdown">
-                        <a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        <a href="#"><span>Profile</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
-                            <li><a href="#">Dropdown 1</a></li>
-                            <li class="dropdown">
-                                <a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Dropdown 1</a></li>
-                                    <li><a href="#">Deep Dropdown 2</a></li>
-                                    <li><a href="#">Deep Dropdown 3</a></li>
-                                    <li><a href="#">Deep Dropdown 4</a></li>
-                                    <li><a href="#">Deep Dropdown 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Dropdown 2</a></li>
-                            <li><a href="#">Dropdown 3</a></li>
-                            <li><a href="#">Dropdown 4</a></li>
+                            @if (User is null)
+                            {
+                            }
+                            else
+                            {
+                                <li><a asp-action="LogIn" asp-controller="Account"> log in</a></li>
+                                <li><a asp-action="Register" asp-controller="Account">sign up</a></li>
+                                <li><a asp-action="LogOut" asp-controller="Account">log out</a></li>
+                            }
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    @*<li><a href="contact.html">Contact</a></li>*@
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -136,7 +132,10 @@
             </div>
         </section>
         </main>
-    <div style="margin-bottom:500px">   @RenderBody()</div>
+    <div >   
+        <partial name="_Notification" />
+        @RenderBody()
+        </div>
          
 
     <footer id="footer" class="footer">

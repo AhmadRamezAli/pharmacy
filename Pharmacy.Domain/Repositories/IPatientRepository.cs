@@ -1,4 +1,5 @@
-﻿using Pharmacy.Domain.Entities;
+﻿using Pharmacy.Domain.DTOs;
+using Pharmacy.Domain.Entities;
 using Pharmacy.SharedKernel.Repository;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,7 @@ namespace Pharmacy.Domain.Repositories
 {
     public interface IPatientRepository : IRepository<Patient>
     {
+        bool? ApplyEventChanges(int id, List<AttachEventDTO> eventsList);
+        public List<Disease> GetDiseases(int id);
     }
 }

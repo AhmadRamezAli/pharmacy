@@ -15,6 +15,6 @@ namespace Pharmacy.Presentation.Models.User
         public string Password { get; set; }
    
         public string ConfirmPassword { get; set; }
-        public String  ReturnUrl { get; set; }
+        public string  ReturnUrl { get; set; }
     }
 }

@@ -183,7 +183,6 @@ public partial class PharmacyContext : IdentityDbContext<Pharmacy.Presentation.M
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_PatientDisease_Patient");
         });
-
         base.OnModelCreating(modelBuilder);
     }
 

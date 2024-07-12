@@ -21,7 +21,7 @@ namespace Pharmacy.Presentation.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Error()
         {
             return View();
         }

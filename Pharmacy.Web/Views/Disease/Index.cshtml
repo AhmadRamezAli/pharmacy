@@ -2,7 +2,9 @@
 @{
 	Layout = "~/Views/Shared/_LayoutSecond.cshtml";
 }
-<h1>Disease</h1>
+<div style="display:flex;justify-content:center">
+	<h1 style="padding:3px; background-color:#feb900; border-radius:5px;margin-bottom:10px">Diseases</h1>
+</div>
 <table class="table">
 	<thead>
 		<tr>
@@ -21,22 +23,26 @@
 				<th scope="row">@(i + 1)</th>
 				<td>@Model[i].Name</td>
 		
-				<td>
-					<div class="mt-2">
-					<a asp-controller="Disease" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
+				<td class="d-flex justify-content-evenly">
+					<div >
+						<a asp-controller="Disease" title="Delete" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
 							<i class="bi bi-trash"></i>
 					</a>
 					</div>
-				</td>
-				<td>
+			
+					<a class="attachBtn" title="Attach" href="@Url.Action("Attach")?id=@Model[i].Id">
+						@*<i class="fa fa-info"></i>*@
+						<i class="fa fa-paperclip" aria-hidden="true"></i>
+
+					</a>
 
 
-					<button type="button" class="btn  " data-bs-toggle="modal" data-bs-target="#edit">
+					<button type="button" class="btn" title="Edit" data-bs-toggle="modal" data-bs-target="#edit-@Model[i].Id">
 						<i class="bi bi-pencil-square"></i>
 					</button>
 
 					<!-- Modal -->
-					<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+					<div class="modal fade" id="edit-@Model[i].Id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -48,7 +54,9 @@
 
 										<div class="form-group">
 											<label for="Name" class="control-label"></label>
-											<input type="text" name="Name" class="form-control" placeholder="Enter Name">
+											<input type="text" name="Name" class="form-control" value="@Model[i].Name">
+											<input type="text" name="id" class="form-control d-none" value="@Model[i].Id">
+
 										</div>
 
 										<div class="modal-footer">
@@ -107,3 +115,49 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal" tabindex="-1" id="attach-content">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="modal-body">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+@section Scripts{
+
+
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script>
+
+
+		//$(document).on("click", ".attachBtn", function () {
+		//	//Swal.showLoading();
+		//	var btn = $(this);
+		//	btn.attr('disabled', 'true');
+		//	$.ajax({
+		//		url: $(this).data("href"),
+		//		//dataType: "html",
+		//		type: 'get',
+		//		success: function (data) {
+		//			$("#attach-content .modal-body").html(data);
+		//			$("#attach-content").modal('show');
+		//		}
+		//	}).always(function () {
+		//		btn.removeAttr('disabled');
+		//		//Swal.hideLoading();
+		//		//Swal.close();
+
+		//	});
+		//});
+
+	</script>
+}
+
+		

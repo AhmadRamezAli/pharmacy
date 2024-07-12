@@ -2,7 +2,9 @@
 @{
 	Layout = "~/Views/Shared/_LayoutSecond.cshtml";
 }
-<h1>Company</h1>
+<div style="display:flex;justify-content:center">
+	<h1 style="padding:3px; background-color:#feb900; border-radius:5px;margin-bottom:10px">Companies</h1>
+</div>
 <table class="table">
 	<thead>
 		<tr>
@@ -29,12 +31,12 @@
 				</td>
 				<td>
 
-					<button type="button" class="btn  " data-bs-toggle="modal" data-bs-target="#edit">
+					<button type="button" class="btn  " data-bs-toggle="modal" data-bs-target="#edit-@Model[i].Id">
 						<i class="bi bi-pencil-square"></i>
 					</button>
 
 					<!-- Modal -->
-					<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+					<div class="modal fade" id="edit-@Model[i].Id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -46,7 +48,9 @@
 
 										<div class="form-group">
 											<label for="Name" class="control-label"></label>
-											<input type="text" name="Name" class="form-control" placeholder="Enter Name">
+											<input type="text" name="Name" class="form-control" value="@Model[i].Name">
+											<input type="text" name="id" class="form-control d-none" value="@Model[i].Id">
+
 											
 
 										</div>
@@ -75,7 +79,7 @@
 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 	<div class="justify-content-center">
 		<i class="bi bi-patch-plus"></i>
-		Add Medicine
+		Add Company
 	</div>
 </button>
 
@@ -92,7 +96,7 @@
 
 					<div class="form-group">
 						<label for="Name" class="control-label"></label>
-						<input type="text" name="Name" class="form-control" placeholder="Enter Category Name">
+						<input type="text" name="Name" class="form-control" placeholder="Enter Company Name">
 					</div>
 
 					<div class="modal-footer">

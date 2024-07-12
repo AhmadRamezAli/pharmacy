@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Pharmacy.Domain.Entities;
 using Pharmacy.Domain.Repositories;
 using Pharmacy.Infrastracture.DataContext;
 using Pharmacy.Infrastracture.Models;
+using Pharmacy.SharedKernel.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +18,6 @@ namespace Pharmacy.Infrastracture.Repositories
         public DiseaseMedicineRepository(PharmacyContext context, IMapper mapper) : base(context, mapper)
         {
         }
+
     }
 }

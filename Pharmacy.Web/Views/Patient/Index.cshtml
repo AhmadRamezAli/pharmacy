@@ -22,7 +22,11 @@
 				<td>@Model[i].FirstName</td>
 				<td>@Model[i].LastName</td>
 				<td>
-					
+					<a class="attachBtn" title="Attach" href="@Url.Action("Attach")?id=@Model[i].Id">
+						@*<i class="fa fa-info"></i>*@
+						<i class="fa fa-paperclip" aria-hidden="true"></i>
+
+					</a>
 					<div class="mt-2">
 						<a asp-controller="Patient" asp-action="Delete" asp-route-id="@Model[i].Id" class="sampah">
                             <i class="bi bi-trash"></i>
@@ -31,12 +35,12 @@
 				</td>
 				<td>
 
-						<button type="button" class="btn  " data-bs-toggle="modal" data-bs-target="#edit">
+					<button type="button" class="btn  " data-bs-toggle="modal" data-bs-target="#edit-@Model[i].Id">
 							<i class="bi bi-pencil-square"></i>
 						</button>
 
 						<!-- Modal -->
-						<div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+					<div class="modal fade" id="edit-@Model[i].Id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -49,9 +53,11 @@
 
 											<div class="form-group">
 											<label for="FirstName" class="control-label"></label>
-											<input type="text" name="FirstName" class="form-control" placeholder="Enter First Name">
+											<input type="text" name="FirstName" class="form-control" value="@Model[i].FirstName">
 											<label for="LastName" class="control-label"></label>
-											<input type="text" name="LastName" class="form-control" placeholder="Enter Last Name">
+											<input type="text" name="LastName" class="form-control" value="@Model[i].LastName">
+											<input type="text" name="id" class="form-control d-none" value="@Model[i].Id">
+
 											</div>
 
 											<div class="modal-footer">

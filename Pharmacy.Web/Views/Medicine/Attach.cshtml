@@ -1,0 +1,327 @@
+﻿@model List<Pharmacy.Domain.Entities.Ingredient>
+@{
+    Layout = "~/Views/Shared/_LayoutSecond.cshtml";
+}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<style>
+		.select2-selection__arrow {
+			top: 28%!important
+		}
+		</style>
+<div style="display:flex;justify-content:center">
+	<h1 style="padding:3px; background-color:#feb900; border-radius:5px;margin-bottom:10px">The Medicine @ViewBag.Medicine.Name</h1>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-9 d-flex flex-column justify-content-center">
+
+        <div class="card-body collapse show">
+            <div class="card-block">
+                <form class="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label style="margin-right:10px">Ingredients</label>
+                                    @Html.DropDownList("Id", (SelectList)@ViewBag.Ingredients , "Please Select Some Ingredients To Attach To The Medicine 😁", htmlAttributes: new { @class = "form-control js-example-basic-single" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn mr-1 mt-2" style="font-size:12px;background-color:#feb900;color:#52565e !important;" id="go">
+                            Attach
+                        </button>
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+        <div id="result-card" class="card-body collapse show">
+            <div class="table-responsive">
+                <div class="field-container">
+
+                    <div class="field-label">
+                        Name
+                    </div>
+
+                    <div class="field-label">
+                        Actions
+                    </div>
+                </div>
+                <div class="card-block card-dashboard" id="medicines-container">
+                    
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn mr-1 mb-3" id="apply" style="background-color:#feb900;margin-top:20px;color:#52565e !important;">
+                Save
+            </button>
+        </div>
+
+
+    </div>
+</div>
+
+<style>
+
+     .added-permission {
+        position: relative;
+        margin: 10px;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .remove {
+        width: 40px;
+        height: 40px;
+        background-color: red;
+        color: white;
+        font-size: 20px;
+        padding: 6px;
+        left: 10px;
+        border-radius: 5px;
+        position: absolute;
+        top: 11%;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .field-container {
+        display:flex;
+        justify-content:space-evenly;
+        align-items:center;
+    }
+    .field {
+        display:flex;
+            flex-direction:column;
+        justify-content:space-evenly;
+        align-items:center;
+        margin:10px;
+    }
+    .field-label {
+        display:flex;
+        flex-direction:column;
+        justify-content:space-evenly;
+        align-items:center;
+        margin:10px;
+        font-weight:900;
+        width:50% !important
+
+    }
+    .field-value {
+        /*display:flex;
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;*/
+        text-align:center;
+        align-items:end;
+        margin:10px;
+        width:50% !important;
+        padding-left:90px;
+        font-weight:700;
+        color:black
+    }
+    .field-label-inner {
+        display:flex;
+        flex-direction:column;
+        justify-content:space-evenly;
+        align-items:center;
+        margin:10px;
+        font-weight:500;
+        width:36% !important;
+        color:#ffffff !important;
+        padding:7px;
+
+    }
+</style>
+
+<style>
+    .select2-selection{
+        margin-top:10px;
+    }
+</style>
+
+
+<script src="/lib/jquery//dist/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+<script>
+
+    var medicines = [];
+    var eventsList = [];
+
+
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+        $.ajax({
+            url: '@Url.Action("GetIngredients", "Medicine")',
+            type: 'GET',
+            data: { id: '@ViewBag.Medicine.Id' },
+            success: function (data) {
+                var select = document.getElementById('Id');
+                medicines = data;
+
+                console.log(data);
+                console.log(select.options.length);
+
+                for (let j = 0; j < medicines.length; j++) {
+                    for (let i = 0; i < select.options.length; i++) {
+                        // console.log(i)
+                        if (parseInt(select.options[i].value) === medicines[j].id) {
+                            select.remove(i);
+                            break; 
+                        }
+                    }
+                }
+
+
+
+                render()
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+
+    });
+
+    $("#go").click(function (e) {
+        e.preventDefault();
+
+        // if(selectedOption.text() == "اختر من فضلك")
+
+
+        const selectedOption = $('#Id option:selected');
+        const value = selectedOption.val();
+        console.log(value)
+        if(value == ""){
+            toastr.warning("Choose Please")
+
+            return;
+        }
+        const content = selectedOption.text();
+        let ii = medicines.findIndex(e => e.id === value)
+        console.log(ii)
+        console.log(value)
+        if (ii == -1) {
+            medicines.push({ id: parseInt(value), name: content })
+
+            const removedEventIndex = eventsList.findIndex(event => event.Id === parseInt(value) 
+            && event.Type === 'Removed');
+
+
+            if (removedEventIndex !== -1) {
+                // Remove the 'Removed' event
+                eventsList.splice(removedEventIndex, 1);
+            } else {
+                // Otherwise, create a 'Removed' event
+                eventsList.push({ Id: parseInt(value), Type: 'Added' });
+            }
+
+            
+
+            var select = document.getElementById('Id');
+            var valueToRemove = value; 
+
+            for (var i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === valueToRemove) {
+                    select.remove(i);
+                    break; 
+                }
+            }
+            render()
+        } else {
+        }
+
+    });
+    function render() {
+        console.log(eventsList)
+        medicines.sort((a, b) => a.name.localeCompare(b.name));
+        $('#medicines-container').empty();
+
+        medicines.forEach(function (medicine) {
+            $('#medicines-container').append(`
+                <div class="field-container"> 
+                        <div class="field-value">
+                                ${medicine.name}
+                        </div>
+                        <div class="field-label">
+                            <div class="field-label-inner btn btn-danger" onclick="removeMedicine(${medicine.id})">
+                                Remove
+                            </div>
+                        </div>
+                   </div>
+
+                `);
+
+        });
+    }
+
+    function removeMedicine(id) {
+        
+        
+        const ind = medicines.findIndex(x => x.id === id)
+        text = medicines[ind].name
+        medicines = medicines.filter(item => item.id !== id);
+        var select = document.getElementById('Id');
+        
+
+        var newOption = document.createElement('option');
+        newOption.value = id; // Set the value
+        newOption.text = text; // Set the visible text
+
+
+        // Add the option to the select
+        select.add(newOption);
+
+        const addedEventIndex = eventsList.findIndex(event => event.Id === id
+            && event.Type === 'Added');
+
+        if (addedEventIndex !== -1) {
+            // Remove the 'Added' event
+            eventsList.splice(addedEventIndex, 1);
+        } else {
+            // Otherwise, create a 'Removed' event
+            eventsList.push({ Id: id, Type: 'Removed' });
+        }
+
+        render();
+    }
+</script>
+
+<script>
+    $("#apply").click(function (e) {
+
+        if (eventsList.length == 0) {
+            toastr.warning("No Changes Happend")
+        }
+        else {
+            json = JSON.stringify(eventsList);
+            $.ajax({
+                url: '/Medicine/ApplyEventsEditing/@ViewBag.Medicine.Id',
+                type: 'POST',
+                contentType: "application/json",
+                data: json,
+                success: function (data) {
+                    console.log(data);
+                    eventsList = []
+                    //window.location.reload();
+                    toastr.success("The Opration Completed")
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(json);
+                    console.error('Error fetching data:', error);
+                    toastr.error("error ocurred")
+                }
+            });
+        }
+    });
+</script>

@@ -22,8 +22,21 @@ public class CategoryRepository : BaseRepository<Category, CategoryDAO>, ICatego
     {
         return _context
             .Medicines
-            .Where(e => e.Category == categoryId)
-            .Select(e=>_mapper.Map<Medicine>(e))
+            .Include(e=>e.CategoryNavigation)
+            .Include(e=>e.CompanyNavigation)
+            .Where(e => e.Category == categoryId).Select(e => new Medicine()
+            {
+                Id = e.Id,
+                Name = e.Name,
+                Description = e.Description,
+                Category = e.Category,
+                Company = e.Company,
+                ScientificName = e.ScientificName,
+                Dosage = e.Dosage,
+                CategoryNavigation = _mapper.Map<Category>(e.CategoryNavigation),
+                CompanyNavigation = _mapper.Map<Company>(e.CompanyNavigation),
+
+            })
             .ToList();
     }
 }

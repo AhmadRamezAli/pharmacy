@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Pharmacy.Domain.Entities;
 using Pharmacy.Infrastracture.Models;
-using Pharmacy.Presentation.Controllers;
 using Pharmacy.Presentation.Models.Category;
 using Pharmacy.Presentation.Models.Company;
 using Pharmacy.Presentation.Models.Disease;

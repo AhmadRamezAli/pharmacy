@@ -19,7 +19,7 @@ namespace Pharmacy.Domain.Entities
         public int Company { get; set; }
         public string ScientificName { get; set; } = null!;
 
-        public virtual MedicienIngredient CategoryNavigation { get; set; } = null!;
+        public virtual Category CategoryNavigation { get; set; } = null!;
         public virtual Company CompanyNavigation { get; set; } = null!;
         public virtual ICollection<DiseaseMedicine> DiseaseMedicines { get; set; }
         public virtual ICollection<MedicienIngredient> MedicienIngredients { get; set; }

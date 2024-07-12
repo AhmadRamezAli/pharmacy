@@ -10,5 +10,6 @@ public interface IRepository<TEntity>
     void Delete(TEntity entity);
     void Update(TEntity entity);
     List<TEntity> GetAll();
+  
     PaginatedResponse<TEntity> GetPage(PaginatedRequest request);
 }

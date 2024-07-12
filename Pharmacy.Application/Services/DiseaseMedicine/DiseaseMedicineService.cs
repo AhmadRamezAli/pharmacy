@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Pharmacy.Domain.Entities;
 namespace Pharmacy.Application.Services.DiseaseMedicine
 {
     public class DiseaseMedicineService : BaseService<Domain.Entities.DiseaseMedicine>, IDiseaseMedicineService
@@ -13,5 +13,9 @@ namespace Pharmacy.Application.Services.DiseaseMedicine
         public DiseaseMedicineService(IDiseaseMedicineRepository repository) : base(repository)
         {
         }
+
+
+
+
     }
 }

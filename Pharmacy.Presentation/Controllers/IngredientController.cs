@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Pharmacy.Application;
 using Pharmacy.Application.Services.Ingredient;
+using Microsoft.AspNetCore.Http;
 
 namespace Pharmacy.Presentation.Controllers
 {

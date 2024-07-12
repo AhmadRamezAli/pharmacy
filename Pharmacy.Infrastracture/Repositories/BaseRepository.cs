@@ -45,9 +45,9 @@ public class BaseRepository<TEntity, TDAO> : IRepository<TEntity>
         return _mapper.Map<TEntity>(res);
     }
 
-    public List<TEntity> GetAll()
+    public virtual List<TEntity> GetAll()
     {
-        var x= _context.Set<TDAO>().Select(e => _mapper.Map<TEntity>(e)).ToList();
+        var x= _context.Set<TDAO>().OrderByDescending(e=>e.Id).Select(e => _mapper.Map<TEntity>(e)).ToList();
 
         _context.SaveChanges();
         return x;

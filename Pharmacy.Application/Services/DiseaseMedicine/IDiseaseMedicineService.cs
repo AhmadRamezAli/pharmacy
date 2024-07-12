@@ -9,5 +9,6 @@ namespace Pharmacy.Application.Services.DiseaseMedicine
 {
     public interface IDiseaseMedicineService : IService<Domain.Entities.DiseaseMedicine>
     {
+      
     }
 }
